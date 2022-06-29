@@ -13,11 +13,12 @@ Openfactoria is a 100% open source serverless web application that is running at
 ```bash
 cd ./openfactoria
 npm install
-npm run dev # opens localhost:3000
+npm run dev # go visit localhost:3000
 ```
 
 # Usage
 
+0. From the "Config" tab, enter your nft.storage api key
 1. Upload files from the "Files" tab
 2. From the "V2" tab, deploy a contract instantly
 3. Set the configuration from the contract dashboard
