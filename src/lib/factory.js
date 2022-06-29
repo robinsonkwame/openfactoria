@@ -339,7 +339,7 @@ const royalty_abi = [
   }
 ]
 
-const chain_code_to_address = {
+const chain_code_to_network = {
   4: "rinkeby",
   1: "mainnet",
   41: "testnet"
@@ -369,13 +369,14 @@ const addresses = {
   telos: {
     testnet: {
       factory: "0xE1F6Aefd7791C9001f02a452c66DCF8d56707386",
-      royalty: "0x931Fe8B2F45247ecd4c191F4D40124b95d547f12"
-    }  
-  }, 
+      royalty: "0x931Fe8B2F45247ecd4c191F4D40124b95d547f12",
+    },
+  },
 }
 export let factory = async (web3, version) => {
   let chainId = await web3.eth.getChainId();
-  let network = chain_code_to_address[chainId] //(chainId == 4 ? "rinkeby" : "mainnet")
+  let network = chain_code_to_network[chainId]
+  //console.log(version, network, addresses['telos']['testnet'])
   let c = new web3.eth.Contract(factory_abi, addresses[version][network].factory);
   c.$chainId = chainId
   c.$network = network
@@ -383,7 +384,7 @@ export let factory = async (web3, version) => {
 }
 export let royalty = async (web3, version) => {
   let chainId = await web3.eth.getChainId();
-  let network = chain_code_to_address[chainId]  //(chainId == 4 ? "rinkeby" : "mainnet")
+  let network = chain_code_to_network[chainId]
   let r = new web3.eth.Contract(royalty_abi, addresses[version][network].royalty);
   r.$chainId = chainId
   r.$network = network

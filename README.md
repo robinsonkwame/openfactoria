@@ -4,6 +4,18 @@ Openfactoria is a 100% open source serverless web application that is running at
 
 > This GitHub repository automatically publishes to https://open.factoria.app through GitHub pages.
 
+# Requirements (WIP)
+
+1. `npm`
+
+# Build (WIP)
+
+```bash
+cd ./openfactoria
+npm install
+npm run dev # opens localhost:3000
+```
+
 # Usage
 
 1. Upload files from the "Files" tab
@@ -25,4 +37,4 @@ Once you get the API key, you can store your NFT content on nft.storage for free
 
 ## 3. Powered by factoria F0 contract
 
-The web app interacts with the Factoria [F0](https://github.com/factoria-org/f0) contract through JavaScript (mostly [F0.js](https://f0js.factoria.app/)).
+The web app interacts with the Factoria [F0](https://github.com/factoria-org/f0) contract through JavaScript (mostly [F0.js](https://f0js.factoria.app/)). EDIT - This web app interacts with contracts published on Telos using a forked version of [F0](https://github.com/robinsonkwame/f0).
