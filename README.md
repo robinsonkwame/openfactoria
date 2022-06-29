@@ -2,7 +2,7 @@
 
 Openfactoria is a 100% open source serverless web application that is running at https://open.factoria.app
 
-> This GitHub repository automatically publishes to https://open.factoria.app through GitHub pages.
+> This GitHub repository can be build locally using NPM and svelte
 
 # Requirements (WIP)
 
