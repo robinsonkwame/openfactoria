@@ -3,6 +3,7 @@ export let contract;
 export let chainId;
 export let web3;
 export let role;
+export let version;
 import { handleError } from './errors.js'
 import { createEventDispatcher } from 'svelte';
 import { factory } from './factory.js';
@@ -39,7 +40,8 @@ const init = async () => {
     contract,
   })
   owner = await f0.api.owner().call()
-  factoryContract = await factory(web3, "v2")
+  //factoryContract = await factory(web3, "v2") // why is version hardcoded!?
+  factoryContract = await factory(web3, version)
 }
 init()
 </script>

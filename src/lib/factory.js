@@ -376,7 +376,7 @@ const addresses = {
 export let factory = async (web3, version) => {
   let chainId = await web3.eth.getChainId();
   let network = chain_code_to_network[chainId]
-  //console.log(version, network, addresses['telos']['testnet'])
+  console.log(version, network)
   let c = new web3.eth.Contract(factory_abi, addresses[version][network].factory);
   c.$chainId = chainId
   c.$network = network

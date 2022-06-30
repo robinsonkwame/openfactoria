@@ -1,6 +1,7 @@
 <script>
 export let v1 = "";
 export let v2 = "";
+export let telos = "";
 export let files = "";
 export let config = "";
 export let network;
@@ -25,6 +26,7 @@ export let account;
     </div>
   {/if}
   <div class='navbar'>
+    <a href='/telos/' class={telos} >Telos</a>
     <a href='/v2/' class={v2} >V2</a>
     <a href='/v1/' class={v1} >V1 (old)</a>
     <a href='/files/' class={files} >Files</a>

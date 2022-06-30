@@ -139,6 +139,7 @@ $: {
 }
 let isv2 = (version === "v2" ? "selected" : "")
 let isv1 = (version === "v1" ? "selected" : "")
+let is_telos = (version === "telose" ? "selected" : "")
 loading = true;
 onMount(async () => {
   factory_contract = await factory(web3, version)
@@ -147,9 +148,9 @@ onMount(async () => {
 })
 </script>
 <div class='error'>{error}</div>
-<Nav v1={isv1} v2={isv2} network={current_network} account={current_account}/>
+<Nav v1={isv1} v2={isv2} telos={is_telos} network={current_network} account={current_account}/>
 {#if loading}
-  <div class='loading'><i class="fa-solid fa-circle-notch fa-spin"></i><br>loading...</div>
+  <div class='loading'><i class="fa-solid fa-circle-notch fa-spin"></i><br>loading... <p><b>[if nothing shows make sure the right <br>Blockchain and Network are selected in Metamask]</b></div>
 {:else}
 {#if displayForm === "hidden"}
   <div class='top'>
