@@ -5,7 +5,7 @@ export let web3;
 export let role;
 import { handleError } from './errors.js'
 import { createEventDispatcher } from 'svelte';
-import { royalty, factory } from './factory.js';
+import { royalty, factory, chain_code_to_network  } from './factory.js';
 const dispatch = createEventDispatcher();
 let royaltyContract
 let factoryContract
@@ -22,10 +22,11 @@ let r = {
   permanent: false
 }
 let royaltyConnect;
-royalty(web3, "v2").then((r) => {
+let version = (chainId === 41 ? "telos" : "v2") // I don't understand why this isn't globally accessible
+royalty(web3, version).then((r) => {
   royaltyContract = r
 })
-factory(web3, "v2").then((t) => {
+factory(web3, version).then((t) => {
   factoryContract = t
 })
 const init = async () => {

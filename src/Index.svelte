@@ -139,7 +139,7 @@ $: {
 }
 let isv2 = (version === "v2" ? "selected" : "")
 let isv1 = (version === "v1" ? "selected" : "")
-let is_telos = (version === "telose" ? "selected" : "")
+let is_telos = (version === "telos" ? "selected" : "")
 loading = true;
 onMount(async () => {
   factory_contract = await factory(web3, version)

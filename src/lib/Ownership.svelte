@@ -3,10 +3,9 @@ export let contract;
 export let chainId;
 export let web3;
 export let role;
-export let version;
 import { handleError } from './errors.js'
 import { createEventDispatcher } from 'svelte';
-import { factory } from './factory.js';
+import { factory, chain_code_to_network } from './factory.js';
 const dispatch = createEventDispatcher();
 let owner;
 let settingOwnership;
@@ -41,6 +40,9 @@ const init = async () => {
   })
   owner = await f0.api.owner().call()
   //factoryContract = await factory(web3, "v2") // why is version hardcoded!?
+  let chainId = await web3.eth.getChainId();
+  let network = chain_code_to_network[chainId]
+  let version = (chainId === 41 ? "telos" : "v2") // ? can't access version from Nav?
   factoryContract = await factory(web3, version)
 }
 init()

@@ -339,10 +339,10 @@ const royalty_abi = [
   }
 ]
 
-const chain_code_to_network = {
+export const chain_code_to_network = {
   4: "rinkeby",
   1: "mainnet",
-  41: "testnet"
+  41: "testnet",
 }
 
 const addresses = {
@@ -376,7 +376,7 @@ const addresses = {
 export let factory = async (web3, version) => {
   let chainId = await web3.eth.getChainId();
   let network = chain_code_to_network[chainId]
-  console.log(version, network)
+  console.log("factory.js:379: ",version, network)
   let c = new web3.eth.Contract(factory_abi, addresses[version][network].factory);
   c.$chainId = chainId
   c.$network = network
